@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import useWeather from '../hooks/useWeather';
 
 const Form = () => {
@@ -16,6 +16,9 @@ const Form = () => {
      setAlert("");
      consWeather(search);
    };
+
+
+
   return (
     <>
       <div className="container">

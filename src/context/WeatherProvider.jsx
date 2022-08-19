@@ -19,27 +19,22 @@ const WeatherProvider=({children})=>{
        });
      };
 
-     const consWeather = async (datos) => {
+     const consWeather = async (_data) => {
        setLoading(true);
        setNoRest(false);
        try {
-         const { city, country } = datos;
-
-         const appId = "5b6c91a0a0314ae5d6d8079cbad7ae16";
-
-         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${appId}`;
-        
-         const { data } = await axios(url);
-         const {lon , lat }=Object.values(data)[0];
+          const { city, country } = _data;
+          const appId = import.meta.env.VITE_API_KEY;
+          const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${appId}`;
+          const { data } = await axios(url);
+          const {lon , lat }=Object.values(data)[0];
     
-
-         const urlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${appId}`;
-        console.log(urlWeather)
-         const { data: clima } = await axios(urlWeather);
-         console.log(clima)
-        setRest(clima);
+          const urlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${appId}`;
+          const { data: clima } = await axios(urlWeather);
+          setRest(clima);
+         
        } catch (error) {
-         setNoRest("Not Found");
+         setNoRest("Not Found, enter the data again.It may be that the data is wrong");
        } finally {
          setLoading(false);
        }
