@@ -4,7 +4,7 @@ const UpBar = () => {
   return (
     <>
       <header>
-        <h1>Weather Finders</h1>
+        <h1>Weather Finder</h1>
       </header>
     </>
   );

@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useRef } from "react";
+import { NavLink, useNavigate, createSearchParams } from "react-router-dom";
+
 const Menu = () => {
   
+  //********** */ Images and Headers
   const featuredProducts = [
     "https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg",
     "https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg",
@@ -13,13 +15,27 @@ const Menu = () => {
     "Find the temperature in your city",
     "Rain or Sun"
   ]
+  // *******************
 
   let count = 0;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [nameP,setNameP]=useState("");
   const slideRef = useRef();
   const headerRef = useRef();
+  
+  //params using navigate
+  const navigate=useNavigate();
 
+  const sendParamsCity=(nameP)=>{
+      navigate({
+        pathname:"/citie",
+        search:createSearchParams({
+          name:nameP
+        }).toString()
+      })
+  }
+  
+  //Slider functions
   const handleOnNextClick = () => {
     count = (count + 1) % featuredProducts.length;
     setCurrentIndex(count);
@@ -80,29 +96,19 @@ const Menu = () => {
               onChange={(e) => setNameP(e.target.value)}
             />
           </div>
-          <div className="container">
-            <h1 className="font-bold text-blue-900">Choose an Option</h1>
-            <NavLink
-              className={(navData) =>
-                navData.isActive
-                  ? "text-yellow-500"
-                  : "p-4 text-blue-700 block hover:bg-blue-400 rounded-md hover:text-blue-900 text-xl font-bold"
-              }
-              to="/main"
-            >
-              Main Cities
-            </NavLink>
-            <NavLink
-              className={(navData) =>
-                navData.isActive
-                  ? "rounded-lg"
-                  : "p-4 text-blue-700 block hover:bg-blue-400 rounded-md hover:text-blue-900 text-xl font-bold"
-              }
-              to="/cities"
-            >
-              My City
-            </NavLink>
-          </div>
+          {nameP.length > 2 ? (
+            <div className="container">
+              <h5>Press Continue to see the Menu:</h5>
+                <div className="place-items-center">
+                  <button
+                    className="bg-blue-500 hover:bg-blue-900 md:w-full lg:w-full sm:w-1 mt-5 p-2 text-white font-bold uppercase rounded-2xl"
+                    onClick={() => sendParamsCity(nameP)}
+                  >
+                    <h2>Continue</h2>
+                  </button>
+                </div>
+              </div>
+          ) : null}
         </div>
       </div>
     </>
