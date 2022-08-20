@@ -9,5 +9,5 @@ This application was created using VITE so to run in dev mode use
   npm run dev
 
 //**********DEPLOY***********
-THe page are hosted in netlify in this link:https://practicalcase-9f9b5a.netlify.app/citie?name=Oso
+THe page are hosted in netlify in this link: https://practicalcase-9f9b5a.netlify.app/
 
