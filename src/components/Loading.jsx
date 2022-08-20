@@ -1,4 +1,4 @@
-
+//Spinner Using SpinKit
 const Loading = () => {
   return (
     <div className="loading">

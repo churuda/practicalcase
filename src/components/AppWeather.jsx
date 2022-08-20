@@ -9,15 +9,6 @@ const AppWeather = () => {
   const { rest, loading, noRest} = useWeather();
   const [image,setImage]=useState();
   const [searchparams]=useSearchParams();
-  
-  useEffect(() => {
-      const _clima = Object.values(rest)[1];
-      if (_clima !== undefined){
-        const img = `http://openweathermap.org/img/wn/${_clima[0].icon}.png`;
-        setImage(img)
-      } 
-  }, [rest])
-  
 
   return (
     <>
