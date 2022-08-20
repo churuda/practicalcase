@@ -23,9 +23,8 @@ const Menu = () => {
   const slideRef = useRef();
   const headerRef = useRef();
   
-  //params using navigate
+  //Send params using navigate
   const navigate=useNavigate();
-
   const sendParamsCity=(nameP)=>{
       navigate({
         pathname:"/citie",

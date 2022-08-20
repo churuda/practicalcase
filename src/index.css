@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* commonly used */
 body {
     font-family: 'Hubballi', cursive;
     background-color: #f1f5f9;
@@ -49,26 +50,6 @@ main {
     width: 100%;
 }
 
-.container_two {
-    margin: 0 auto 2rem auto;
-    border-radius: .5rem;
-    background-color:#0057c0 ;
-    padding: 4rem;
-    -webkit-box-shadow: 0px 10px 33px -17px rgb(18, 134, 115);
-    -moz-box-shadow: 0px 10px 33px -17px rgba(18, 134, 115, 100);
-    box-shadow: 0px 10px 33px -17px rgba(18, 134, 115, 100);
-    width: 100%;
-}
-.container_tree {
-    margin: 0 auto 2rem auto;
-    border-radius: .5rem;
-    background-color: #c70233;
-    padding: 4rem;
-    -webkit-box-shadow: 0px 10px 33px -17px rgb(18, 134, 115);
-    -moz-box-shadow: 0px 10px 33px -17px rgba(18, 134, 115, 100);
-    box-shadow: 0px 10px 33px -17px rgba(18, 134, 115, 100);
-    width: 100%;
-}
 
 /* Spinner Config  */
 .loading {
